@@ -22,6 +22,7 @@ echo Breadcrumbs::widget(['links' => [
     <div class="panel-heading">
         <h3 class="panel-title">Редактирование</h3>
     </div>
+    <div class="panel-body">
     <?php $form = ActiveForm::begin(); ?>
     <div class="row">
         <?php foreach ($model->messages as $language => $message) : ?>
@@ -36,4 +37,5 @@ echo Breadcrumbs::widget(['links' => [
         ) ?>
     </div>
     <?php $form::end(); ?>
+    </div>
 </div>
