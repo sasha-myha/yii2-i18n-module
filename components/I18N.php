@@ -17,6 +17,13 @@ class I18N extends \yii\i18n\I18N
     public $missingTranslationHandler = ['Zelenin\yii\modules\I18n\Module', 'missingTranslation'];
 
     /**
+     * Message categories which will not be automatically added on MissingTranslationEvent
+     *
+     * @var array
+     */
+    public $excludedCategories = [];
+
+    /**
      * @throws InvalidConfigException
      */
     public function init()
