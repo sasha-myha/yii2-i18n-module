@@ -56,7 +56,9 @@ echo Breadcrumbs::widget(['links' => [
                     [
                         'attribute' => 'status',
                         'value' => function ($model, $index, $widget) {
-                                return '';
+                            return \Zelenin\yii\modules\I18n\models\Message::isModelFullyTranslated($model->id)
+                                ? 'Переведено'
+                                : 'Не переведено';
                             },
                         'filter' => Html::dropDownList($searchModel->formName() . '[status]', $searchModel->status, $searchModel->getStatus(), [
                                     'class' => 'form-control',

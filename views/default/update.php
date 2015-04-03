@@ -26,7 +26,7 @@ echo Breadcrumbs::widget(['links' => [
     <?php $form = ActiveForm::begin(); ?>
     <div class="row">
         <?php foreach ($model->messages as $language => $message) : ?>
-            <?= $form->field($model->messages[$language], '[' . $language . ']translation', ['options' => ['class' => 'form-group col-sm-6']])->textInput()->label($language) ?>
+            <?= $form->field($model->messages[$language], '[' . $language . ']translation', ['options' => ['class' => 'form-group col-sm-6']])->textarea()->label($language) ?>
         <?php endforeach; ?>
     </div>
     <div class="form-group">
