@@ -43,17 +43,27 @@ class SourceMessage extends ActiveRecord
      */
     public function attributeLabels()
     {
+        $firstLang = Yii::$app->getI18n()->languages[0];
+
         return [
             'id' => Module::t('ID'),
             'category' => 'Категория',
             'message' => 'Сообщение',
-            'status' => 'Статус'
+            'status' => 'Статус',
+            'translation' => 'Перевод['.$firstLang.']'
         ];
     }
 
     public function getMessages()
     {
         return $this->hasMany(Message::className(), ['id' => 'id'])->indexBy('language');
+    }
+
+    public function getMessage()
+    {
+        $firstLang = Yii::$app->getI18n()->languages[0];
+
+        return $this->hasOne(Message::className(), ['id' => 'id'])->where(['language' => $firstLang])->indexBy('language');
     }
 
     /**
@@ -86,5 +96,13 @@ class SourceMessage extends ActiveRecord
             $this->link('messages', $message);
             $message->save();
         }
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getDefaultLangTranslation()
+    {
+        return $this->getMessage()->exists() ? $this->getMessage()->one()->translation : null;
     }
 }

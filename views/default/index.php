@@ -47,6 +47,13 @@ echo Breadcrumbs::widget(['links' => [
                             }
                     ],
                     [
+                        'attribute' => 'translation',
+                        'format' => 'raw',
+                        'value' => function ($model, $index, $widget) {
+                            return $model->getDefaultLangTranslation();
+                        }
+                    ],
+                    [
                         'attribute' => 'category',
                         'value' => function ($model, $index, $dataColumn) {
                                 return $model->category;

@@ -5,6 +5,7 @@ namespace Zelenin\yii\modules\I18n\models\search;
 use yii\data\ActiveDataProvider;
 use Yii;
 use yii\helpers\ArrayHelper;
+use Zelenin\yii\modules\I18n\models\Message;
 use Zelenin\yii\modules\I18n\models\SourceMessage;
 use Zelenin\yii\modules\I18n\Module;
 
@@ -15,6 +16,8 @@ class SourceMessageSearch extends SourceMessage
 
     public $status;
 
+    public $translation;
+
     /**
      * @inheritdoc
      */
@@ -23,7 +26,8 @@ class SourceMessageSearch extends SourceMessage
         return [
             ['category', 'safe'],
             ['message', 'safe'],
-            ['status', 'safe']
+            ['status', 'safe'],
+            ['translation', 'safe']
         ];
     }
 
@@ -33,7 +37,7 @@ class SourceMessageSearch extends SourceMessage
      */
     public function search($params)
     {
-        $query = SourceMessage::find();
+        $query = SourceMessage::find()->joinWith('message');
         $dataProvider = new ActiveDataProvider(['query' => $query]);
 
         if (!($this->load($params) && $this->validate())) {
@@ -49,7 +53,8 @@ class SourceMessageSearch extends SourceMessage
 
         $query
             ->andFilterWhere(['like', 'category', $this->category])
-            ->andFilterWhere(['like', 'message', $this->message]);
+            ->andFilterWhere(['like', 'message', $this->message])
+            ->andFilterWhere(['like', Message::tableName().'.translation', $this->translation]);
         return $dataProvider;
     }
 
