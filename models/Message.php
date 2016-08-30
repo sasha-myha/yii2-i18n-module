@@ -60,7 +60,11 @@ class Message extends ActiveRecord
     {
         return static::find()
             ->where(['id' => $modelId])
-            ->andWhere('translation is not NULL and translation <> ""')
+            ->andWhere([
+                'AND',
+                ['is not', 'translation', null],
+                ['<>', 'translation', ''],
+            ])
             ->count() == count(Yii::$app->getI18n()->languages);
     }
 }
