@@ -1,5 +1,5 @@
 {
-    "name": "notgosu/yii2-i18n-module",
+    "name": "sasha-myha/yii2-i18n-module",
     "description": "Yii2 i18n (internalization) module makes the translation of your application so simple",
     "version": "0.1.5",
     "type": "yii2-extension",
@@ -9,7 +9,7 @@
         "translation",
         "translations"
     ],
-    "homepage": "https://github.com/notgosu/yii2-i18n-module",
+    "homepage": "https://github.com/sasha-myha/yii2-i18n-module",
     "time": "2014-11-02",
     "license": "MIT",
     "authors": [
@@ -20,14 +20,14 @@
             "role": "Developer"
         },
 	    {
-		    "name": "Naumenko Pavel",
-		    "email": "not.gosu@gmail.com",
+		    "name": "Mukha Sasha",
+		    "email": "louse2007@gmail.com",
 		    "role": "Developer"
 	    }
     ],
     "support": {
-        "issues": "https://github.com/notgosu/yii2-i18n-module/issues",
-        "source": "https://github.com/notgosu/yii2-i18n-module"
+        "issues": "https://github.com/sasha-myha/yii2-i18n-module/issues",
+        "source": "https://github.com/sasha-myha/yii2-i18n-module"
     },
     "require": {
         "yiisoft/yii2": "~2", "didux1/old-zelenin-i18n-widgets": "~0.0@stable"
