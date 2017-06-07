@@ -30,7 +30,7 @@
         "source": "https://github.com/notgosu/yii2-i18n-module"
     },
     "require": {
-        "yiisoft/yii2": "~2", "zelenin/yii2-widgets": "~0.0@stable"
+        "yiisoft/yii2": "~2", "didux1/old-zelenin-i18n-widgets": "~0.0@stable"
     },
     "autoload": {
         "psr-4": {
